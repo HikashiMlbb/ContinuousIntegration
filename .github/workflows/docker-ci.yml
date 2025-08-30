@@ -46,8 +46,8 @@ jobs:
       - name: Define Docker image tags
         id: vars
         run: |
-          echo "::set-output name=latest::latest"
-          echo "::set-output name=commit-sha::$(git rev-parse --short HEAD)"
+          echo "latest=latest" >> $GITHUB_OUTPUT
+          echo "commit-sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       
       - name: Push all docker image tags
         uses: docker/build-push-action@v3
@@ -56,5 +56,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.commit-sha }}
-            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.latest }}
+            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.outputs.commit-sha }}
+            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.outputs.latest }}
