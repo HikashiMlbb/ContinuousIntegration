@@ -25,7 +25,7 @@ jobs:
         run: echo "Hello, world!" > file.trx
       
       - name: DELETE ME, THIS IS ALSO TEST
-        uses: actions/upload-artifacts@v4
+        uses: actions/upload-artifact@v4
         with: 
           name: test-artifact-1234
           path: '**/*.trx'
