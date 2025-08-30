@@ -20,23 +20,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.x.x'
-      
-      - name: DELETE ME, THIS IS TEST
-        run: echo "Hello, world!" > file.trx
-      
-      - name: DELETE ME, THIS IS ALSO TEST
-        uses: actions/upload-artifact@v4
-        with: 
-          name: test-artifact-1234
-          path: '**/*.trx'
         
-        #      - name: Restore .NET Solution
-#        run: dotnet restore
-#        
-#      - name: Build .NET Solution
-#        run: dotnet build --no-restore --configuration Release
-#        
-#      - name: Run .NET Test Projects
-#        run: dotnet test --no-build --configuration Release
-        
-      
+      - name: Restore .NET Solution
+        run: dotnet restore
+
+      - name: Build .NET Solution
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Run .NET Test Projects
+        run: dotnet test --no-build --configuration Release     
