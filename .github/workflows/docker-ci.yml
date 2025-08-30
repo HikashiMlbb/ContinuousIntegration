@@ -56,4 +56,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/ContinuousIntegration
+            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.commit-sha }}
+            ${{ secrets.DOCKER_USERNAME }}/ci-test:${{ steps.vars.latest }}
