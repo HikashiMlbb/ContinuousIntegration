@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifacts@v4
         with: 
           name: test-artifact-1234
-          path: **/*.trx
+          path: '**/*.trx'
         
         #      - name: Restore .NET Solution
 #        run: dotnet restore
